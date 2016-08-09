@@ -52,44 +52,6 @@ signing {
     sign configurations.archives
 }
 
-uploadArchives {
-    configuration = configurations.archives
-    repositories.mavenDeployer {
-        beforeDeployment { MavenDeployment deployment -> signing.signPom(deployment) }
-
-        repository(url: sonatypeRepo) {
-            authentication(userName: whisperSonatypeUsername, password: whisperSonatypePassword)
-        }
-
-        pom.project {
-            name 'curve25519-android'
-            packaging 'aar'
-            description 'Curve25519 library for Android'
-            url 'https://github.com/WhisperSystems/curve25519-java'
-
-            scm {
-                url 'scm:git@github.com:WhisperSystems/curve25519-java.git'
-                connection 'scm:git@github.com:WhisperSystems/curve25519-java.git'
-                developerConnection 'scm:git@github.com:WhisperSystems/curve25519-java.git'
-            }
-
-            licenses {
-                license {
-                    name 'GPLv3'
-                    url 'https://www.gnu.org/licenses/gpl-3.0.txt'
-                    distribution 'repo'
-                }
-            }
-
-            developers {
-                developer {
-                    name 'Trevor Perrin'
-                    name 'Moxie Marlinspike'
-                }
-            }
-        }
-    }
-}
 
 task installArchives(type: Upload) {
     description "Installs the artifacts to the local Maven repository."
