@@ -29,8 +29,6 @@ package com.neilalexander.jnacl;
 
 import com.neilalexander.jnacl.crypto.curve25519xsalsa20poly1305;
 
-import java.util.Formatter;
-
 public class NaCl {
   static final int crypto_secretbox_KEYBYTES = 32;
   static final int crypto_secretbox_NONCEBYTES = 24;
@@ -104,17 +102,17 @@ public class NaCl {
     return data;
   }
 
-  public static String asHex(byte[] buf) {
-    Formatter formatter = new Formatter();
-    for (byte b : buf)
-      formatter.format("%02x", b);
-    return formatter.toString();
-  }
-
-  public static String asHex(int[] buf) {
-    Formatter formatter = new Formatter();
-    for (int b : buf)
-      formatter.format("%02x", b);
-    return formatter.toString();
-  }
+//  public static String asHex(byte[] buf) {
+//    Formatter formatter = new Formatter();
+//    for (byte b : buf)
+//      formatter.format("%02x", b);
+//    return formatter.toString();
+//  }
+//
+//  public static String asHex(int[] buf) {
+//    Formatter formatter = new Formatter();
+//    for (int b : buf)
+//      formatter.format("%02x", b);
+//    return formatter.toString();
+//  }
 }
